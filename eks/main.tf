@@ -82,9 +82,10 @@ resource "aws_iam_role_policy_attachment" "main-AmazonEC2ContainerRegistryReadOn
 
 resource "aws_eks_node_group" "main" {
   cluster_name    = aws_eks_cluster.main.name
-  node_group_name = "example"
+  node_group_name = "main"
   node_role_arn   = aws_iam_role.node.arn
   subnet_ids      = ["subnet-0bf5c17dd44117947","subnet-0d122fa9ee2ce9446"]
+  instance_types = ["t3.medium"]
 
   scaling_config {
     desired_size = 1
