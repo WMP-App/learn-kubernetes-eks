@@ -37,7 +37,7 @@ metadata:
 spec:
   containers:
   - name: portfolio-service
-    image: 739561048503.dkr.ecr.us-east-1.amazonaws.com/portfolio-service:latest
+    image: 327319898773.dkr.ecr.us-east-1.amazonaws.com/portfolio-service
     imagePullPolicy: Always
     env:
       - name: SPRING_PROFILES_ACTIVE
