@@ -44,9 +44,18 @@ metadata:
   name: analytics-service
 spec:
   containers:
-  - name: analytics-service
-    image: 327319898773.dkr.ecr.us-east-1.amazonaws.com/analytics-service:latest
-    imagePullPolicy: Always
+    - name: analytics-service
+      image: 327319898773.dkr.ecr.us-east-1.amazonaws.com/analytics-service:latest
+      imagePullPolicy: Always
+      env:
+        - name: DATABASE_URL
+          value: "postgresql+asyncpg://analytics_svc_user:localdev123@wmp-dev.c49qo0sggdhq.us-east-1.rds.amazonaws.com:5432/wmp"
+        - name: DB_SCHEMA
+          value: "analytics_schema"
+        - name: LOG_LEVEL
+          value: "INFO"
+        - name: ENVIRONMENT
+          value: "production"
 ---
 apiVersion: v1
 kind: Pod
