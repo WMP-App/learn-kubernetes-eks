@@ -6,6 +6,7 @@ spec:
   containers:
   - name: frontend
     image: 327319898773.dkr.ecr.us-east-1.amazonaws.com/frontend:latest
+    imagePullPolicy: Always
 
 ---
 apiVersion: v1
@@ -16,6 +17,7 @@ spec:
   containers:
   - name: auth-service
     image: 327319898773.dkr.ecr.us-east-1.amazonaws.com/auth-service:latest
+    imagePullPolicy: Always
 
 ---
 apiVersion: v1
@@ -26,6 +28,7 @@ spec:
   containers:
   - name: analytics-service
     image: 327319898773.dkr.ecr.us-east-1.amazonaws.com/analytics-service:latest
+    imagePullPolicy: Always
 ---
 apiVersion: v1
 kind: Pod
@@ -34,7 +37,8 @@ metadata:
 spec:
   containers:
   - name: portfolio-service
-    image: 739561048503.dkr.ecr.us-east-1.amazonaws.com/portfolio-service
+    image: 739561048503.dkr.ecr.us-east-1.amazonaws.com/portfolio-service:latest
+    imagePullPolicy: Always
     env:
       - name: SPRING_PROFILES_ACTIVE
         value: production
